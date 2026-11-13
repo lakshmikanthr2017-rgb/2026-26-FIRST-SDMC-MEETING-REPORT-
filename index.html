@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-27 ನೇ ಸಾಲಿನ SDMC ಸಭೆ ಮತ್ತು ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ</title>
+    <style>
+        :root {
+            --primary-color: #1b5e20;
+            --secondary-color: #2e7d32;
+            --accent-color: #ffeb3b;
+            --bg-color: #f4f6f8;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Nudi 01', 'Tunga', 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        /* Navigation Button Hub */
+        .nav-hub {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: #ffffff;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .action-btn {
+            background-color: #d32f2f;
+        }
+        .action-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .reset-btn {
+            background-color: #e65100;
+        }
+        .reset-btn:hover {
+            background-color: #bf360c;
+        }
+
+        /* Container Pages */
+        .page-container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .page-container.active {
+            display: block;
+        }
+
+        /* Inputs & Controls */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"], input[type="date"], select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            width: 250px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #b0bec5;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #e8f5e9;
+            color: var(--primary-color);
+        }
+
+        [contenteditable="true"] {
+            background-color: #fffde7;
+            border: 1px dashed #fbc02d;
+            padding: 4px;
+        }
+
+        /* Camera Section */
+        .camera-box {
+            text-align: center;
+            border: 2px dashed #90a4ae;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        video, canvas, #photo-preview {
+            max-width: 100%;
+            width: 400px;
+            height: auto;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        /* Footer Styling: Bold & Blinking with Distinct Colors */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: #1a237e;
+            color: #ffffff;
+            font-size: 16px;
+            border-top: 4px solid #ffeb3b;
+        }
+
+        .blinking-footer {
+            font-weight: bold;
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0.4; color: #ffeb3b; }
+        }
+
+        /* Print Settings for A4 Portrait - All Pages Together */
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-hub, .nav-btn, button, .no-print {
+                display: none !important;
+            }
+            .page-container {
+                display: block !important;
+                box-shadow: none;
+                margin: 0;
+                padding: 10px;
+                width: 100%;
+                page-break-after: always;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ಶಾಲಾ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣಾ ಸಮಿತಿ (SDMC) ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ</h1>
+        <p>2026-27 ನೇ ಸಾಲಿನ ಸಭೆ, ತರಬೇತಿ, ಹಾಜರಾತಿ, ಚಿತ್ರೀಕರಣ ಹಾಗೂ ಬಿಲ್ ತಯಾರಿಕಾ ಗಣಕಯಂತ್ರ ತಂತ್ರಾಂಶ</p>
+    </header>
+
+    <!-- Navigation Hub Buttons -->
+    <div class="nav-hub no-print">
+        <button class="nav-btn" onclick="showPage('page-meeting')">SDMC MEETING REPORT</button>
+        <button class="nav-btn" onclick="showPage('page-attendance')">SDMC ATTENDANCE SHEET</button>
+        <button class="nav-btn" onclick="showPage('page-camera')">CAMERA</button>
+        <button class="nav-btn" onclick="showPage('page-bill')">BILL GENERATING</button>
+        <button class="nav-btn action-btn" onclick="window.print()">Print All (A4 Portrait)</button>
+        <button class="nav-btn reset-btn" onclick="resetAllData()">Reset Data</button>
+    </div>
+
+    <!-- 1. SDMC MEETING REPORT PAGE -->
+    <div id="page-meeting" class="page-container active">
+        <h2>2026-27 ನೇ ಸಾಲಿನ SDMC ಸದಸ್ಯರ ಸಭೆ ಮತ್ತು ತರಬೇತಿ ವರದಿ</h2>
+        <div class="form-group no-print">
+            <label>ದಿನಾಂಕ ನಮೂದಿಸಿ (Enter Date):</label>
+            <input type="date" id="meeting-date" value="2026-11-14">
+            <label>ಅಧ್ಯಕ್ಷರ ಹೆಸರು (President Name):</label>
+            <input type="text" id="president-name" value="ಶ್ರೀ / ಶ್ರೀಮತಿ ಅಧ್ಯಕ್ಷರು">
+            <button class="nav-btn" style="padding: 8px 15px;" onclick="updateMeetingHeader()">Update Report</button>
+        </div>
+
+        <div id="meeting-header-text" style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+            ದಿನಾಂಕ : <span id="disp-date" contenteditable="true">2026-11-14</span> ರಂದು ಶಾಲಾ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣಾ ಸಮಿತಿಯ ಸಭೆ/ತರಬೇತಿಯನ್ನು SDMC ಅಧ್ಯಕ್ಷರಾದ <span id="disp-president" contenteditable="true">ಶ್ರೀ ರಮೇಶ್</span> ಅಧ್ಯಕ್ಷತೆಯಲ್ಲಿ ನಡೆಸಲಾಯಿತು. ಸಭೆಯಲ್ಲಿ ಶಾಲೆಯ ಶೈಕ್ಷಣಿಕ ಅಭಿವೃದ್ಧಿ, ಮಕ್ಕಳ ಹಕ್ಕುಗಳು, ಸಂವಿಧಾನದ ಮಹತ್ವ ಹಾಗೂ ಶೌಚಾಲಯ ನಿರ್ವಹಣೆ ಕುರಿತು ಚರ್ಚಿಸಿ ನಿರ್ಣಯ ಕೈಗೊಳ್ಳಲಾಯಿತು.
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%;">ಕ್ರ ಸಂ</th>
+                    <th style="width: 35%;">ಚರ್ಚಾಂಶಗಳು</th>
+                    <th style="width: 55%;">ಕೈಗೊಂಡ ತೀರ್ಮಾನಗಳು</th>
+                </tr>
+            </thead>
+            <tbody id="meeting-table-body">
+                <tr>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">ಮಕ್ಕಳ ದಿನಾಚರಣೆ (Children's Day)</td>
+                    <td contenteditable="true">ನವೆಂಬರ್ 14ರಂದು ಮಕ್ಕಳ ದಿನಾಚರಣೆಯನ್ನು ಅರ್ಥಪೂರ್ಣವಾಗಿ ಆಚರಿಸಲು ಹಾಗೂ ಮಕ್ಕಳ ಹಕ್ಕುಗಳ ಬಗ್ಗೆ ಅರಿವು ಮೂಡಿಸಲು ತೀರ್ಮಾನಿಸಲಾಯಿತು.</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">ಸಂವಿಧಾನ ದಿನಾಚರಣೆ</td>
+                    <td contenteditable="true">ನವೆಂಬರ್ 26ರಂದು ಸಂವಿಧಾನ ದಿನಾಚರಣೆ ಆಚರಿಸಿ ಮೂಲಭೂತ ಹಕ್ಕುಗಳು ಹಾಗೂ ಕರ್ತವ್ಯಗಳ ಬಗ್ಗೆ ತಿಳಿಸಿಕೊಡಲು ನಿರ್ಧರಿಸಲಾಯಿತು.</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">3</td>
+                    <td contenteditable="true">CCE ಚಟುವಟಿಕೆಗಳು</td>
+                    <td contenteditable="true">ವಿದ್ಯಾರ್ಥಿಗಳ ಕಲಿಕಾ ಪ್ರಗತಿಯನ್ನು ನಿರಂತರವಾಗಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡಲು ಮತ್ತು ಹಿಂದುಳಿದ ಮಕ್ಕಳಿಗೆ ಪರಿಹಾರ ಬೋಧನೆ ನೀಡಲು ತೀರ್ಮಾನಿಸಲಾಯಿತು.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 13px; color: #666;" class="no-print">* ಎಲ್ಲಾ ಕೋಶಗಳನ್ನು ನೇರವಾಗಿ ಕ್ಲಿಕ್ ಮಾಡಿ ಸಂಪಾದಿಸಬಹುದು (Click cells to edit directly).</p>
+    </div>
+
+    <!-- 2. SDMC ATTENDANCE SHEET PAGE -->
+    <div id="page-attendance" class="page-container">
+        <h2>SDMC ಸದಸ್ಯರ ಹಾಜರಾತಿ ಪಟ್ಟಿ (Attendance Sheet)</h2>
+        <p>ಸಭೆಯಲ್ಲಿ ಭಾಗವಹಿಸಿದ ಸದಸ್ಯರ ಹೆಸರು ಹಾಗೂ ಹುದ್ದೆಯ ವಿವರಗಳನ್ನು ಇಲ್ಲಿ ನಮೂದಿಸಿ:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ಕ್ರ ಸಂ</th>
+                    <th>ಸದಸ್ಯರ ಹೆಸರು (Member Name)</th>
+                    <th>ಹುದ್ದೆ (Designation)</th>
+                    <th>ಸಹಿ (Signature)</th>
+                </tr>
+            </thead>
+            <tbody id="attendance-tbody">
+                <tr><td>1</td><td contenteditable="true">ಶ್ರೀ ಲಕ್ಷ್ಮೀಕಾಂತ್ ಆರ್</td><td><strong>PRESIDENT</strong></td><td></td></tr>
+                <tr><td>2</td><td contenteditable="true">ಶ್ರೀಮತಿ ಶೈಲಜಾ</td><td><strong>VICE PRESIDENT</strong></td><td></td></tr>
+                <tr><td>3</td><td contenteditable="true">ಶ್ರೀ ಕುಮಾರ್ ಜಿ.ವಿ.</td><td>MEMBER</td><td></td></tr>
+                <tr><td>4</td><td contenteditable="true">ಶ್ರೀಮತಿ ಮಮತಾ</td><td>MEMBER</td><td></td></tr>
+                <tr><td>5</td><td contenteditable="true">ಶ್ರೀ ರಂಗಸ್ವಾಮಿ</td><td>MEMBER</td><td></td></tr>
+                <tr><td>6</td><td contenteditable="true">ಶ್ರೀಮತಿ ವಾಣಿ</td><td>MEMBER</td><td></td></tr>
+            </tbody>
+        </table>
+        <button class="nav-btn no-print" onclick="addAttendanceRow()">+ Add Member</button>
+    </div>
+
+    <!-- 3. CAMERA PAGE -->
+    <div id="page-camera" class="page-container">
+        <h2>SDMC ಸಭೆಯ ಛಾಯಾಚಿತ್ರ ಸೆರೆಹಿಡಿಯುವಿಕೆ (Meeting Photo Capture)</h2>
+        <div class="camera-box">
+            <div class="no-print">
+                <button class="nav-btn" onclick="startCamera()">Start Camera</button>
+                <button class="nav-btn action-btn" onclick="capturePhoto()">Capture Photo</button>
+            </div>
+            <br>
+            <video id="video" autoplay playsinline style="display:none;"></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div>
+                <img id="photo-preview" alt="Meeting photo preview will appear here..." style="border: 1px solid #ccc; min-height: 200px; display:inline-block;">
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. BILL GENERATING PAGE -->
+    <div id="page-bill" class="page-container">
+        <h2>ವಸ್ತುಗಳು ಮತ್ತು ಖರ್ಚುಗಳ ಬಿಲ್ ತಯಾರಿಕೆ (Bill Generation)</h2>
+        <div class="form-group">
+            <label>ಖರ್ಚಿನ ವಿವರ (Expenditure Type):</label>
+            <select id="exp-type-select" onchange="updateBillItems()">
+                <option value="tea">COFFEE/TEA EXPENDITURE</option>
+                <option value="books">ಸಾಹಿತ್ಯಗಳ ಖರ್ಚು (Stationery Books)</option>
+                <option value="doc">DOCUMENTATION</option>
+            </select>
+
+            <label>ಅಂಗಡಿಯ ಹೆಸರು (Store Name):</label>
+            <select id="store-name-select">
+                <option value="ಮಾರುತಿ ಪ್ರಾವಿಸನ್ ಸ್ಟೋರ್">ಮಾರುತಿ ಪ್ರಾವಿಸನ್ ಸ್ಟೋರ್ (Maruti Provision Store)</option>
+                <option value="SRI VINAYAKA BOOKS AND XEROX CENTER">SRI VINAYAKA BOOKS AND XEROX CENTER</option>
+                <option value="VIDYA STUDIO AND STATIONERY SHOP">VIDYA STUDIO AND STATIONERY SHOP</option>
+            </select>
+        </div>
+
+        <div style="border: 1px solid #333; padding: 20px; border-radius: 6px; background: #fff;">
+            <div style="text-align: center; font-weight: bold; font-size: 18px;" contenteditable="true">ಶಾಲಾ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣಾ ಸಮಿತಿ (SDMC) ಖರ್ಚಿನ ರಶೀದಿ</div>
+            <p>ಅಂಗಡಿ ಹೆಸರು: <span id="bill-store-display" contenteditable="true">ಮಾರುತಿ ಪ್ರಾವಿಸನ್ ಸ್ಟೋರ್</span></p>
+            <p>ದಿನಾಂಕ: <span contenteditable="true">14/11/2026</span></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ಕ್ರ ಸಂ (SL No)</th>
+                        <th>ವಿವರಗಳು (Description / Items)</th>
+                        <th>ಮೊತ್ತ (Amount ₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="bill-items-tbody">
+                    <tr>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true" id="bill-item-desc">ಚಹಾ ಮತ್ತು ತಿಂಡಿ (Tea & Snacks for SDMC meeting members)</td>
+                        <td contenteditable="true">750.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: right; font-weight: bold; font-size: 16px;">
+                ಒಟ್ಟು ಮೊತ್ತ (Total): ₹ <span contenteditable="true">750.00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Required Details (Bold & Blinking with Distinct Colors) -->
+    <footer>
+        <div class="blinking-footer">
+            Prepared by : LAKSHMIKANTH R (Mob: 9844444871) | ಸಲಹೆ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ : VENKATARAMANAIAH PRESIDENT KSTPA C N HALLI TALUK TUMKUR DIST
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation Control
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-container');
+            pages.forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Meeting Header Update
+        function updateMeetingHeader() {
+            const dt = document.getElementById('meeting-date').value;
+            const pres = document.getElementById('president-name').value;
+            document.getElementById('disp-date').innerText = dt;
+            document.getElementById('disp-president').innerText = pres;
+        }
+
+        // Attendance Dynamic Row Addition
+        function addAttendanceRow() {
+            const tbody = document.getElementById('attendance-tbody');
+            const rowCount = tbody.rows.length + 1;
+            const row = tbody.insertRow();
+            row.innerHTML = `<td>${rowCount}</td><td contenteditable="true">ಹೊಸ ಸದಸ್ಯರ ಹೆಸರು</td><td>MEMBER</td><td></td>`;
+        }
+
+        // Camera Functionality
+        let videoStream = null;
+        async function startCamera() {
+            const video = document.getElementById('video');
+            try {
+                videoStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+                video.srcObject = videoStream;
+                video.style.display = 'block';
+            } catch (err) {
+                alert("Camera access denied or unavailable: " + err);
+            }
+        }
+
+        function capturePhoto() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const preview = document.getElementById('photo-preview');
+            
+            if (!videoStream) {
+                alert("Please start the camera first!");
+                return;
+            }
+
+            canvas.width = video.videoWidth || 400;
+            canvas.height = video.videoHeight || 300;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            preview.src = canvas.toDataURL('image/png');
+        }
+
+        // Bill Dynamic Item & Store Mapping
+        function updateBillItems() {
+            const expType = document.getElementById('exp-type-select').value;
+            const storeSelect = document.getElementById('store-name-select');
+            const descCell = document.getElementById('bill-item-desc');
+            const storeDisplay = document.getElementById('bill-store-display');
+
+            if (expType === 'tea') {
+                storeSelect.value = "ಮಾರುತಿ ಪ್ರಾವಿಸನ್ ಸ್ಟೋರ್";
+                descCell.innerText = "ಚಹಾ ಮತ್ತು ಲಘು ಉಪಹಾರ (Tea and Refreshments for SDMC Members)";
+            } else if (expType === 'books') {
+                storeSelect.value = "SRI VINAYAKA BOOKS AND XEROX CENTER";
+                descCell.innerText = "ಶಾಲಾ ದಾಖಲಾತಿ ಮತ್ತು ಸ್ಟೇಷನರಿ ಪುಸ್ತಕಗಳು (Stationery & Registers)";
+            } else if (expType === 'doc') {
+                storeSelect.value = "VIDYA STUDIO AND STATIONERY SHOP";
+                descCell.innerText = "ಫೋಟೋ ಪ್ರಿಂಟಿಂಗ್ ಮತ್ತು ಡಾಕ್ಯುಮೆಂಟೇಶನ್ (Photography & Printing)";
+            }
+            storeDisplay.innerText = storeSelect.value;
+        }
+
+        // Reset Data Function
+        function resetAllData() {
+            if (confirm("Are you sure you want to reset all customized inputs?")) {
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
